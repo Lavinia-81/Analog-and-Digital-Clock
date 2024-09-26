@@ -27,5 +27,5 @@ Welcome to the **Analog-and-Digital-Clock** repository! This project features a 
 To get started with this project, clone the repository and open the `index.html` file in your browser. Explore the code in the `html`, `css`, and `js` directories to understand how each part contributes to the overall functionality.
 
 ```bash
-git clone 
+git clone https://github.com/Lavinia-81/Analog-and-Digital-Clock.git
 cd Analog-and-Digital-Clock
