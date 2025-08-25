@@ -1,3 +1,21 @@
+const toggleBtn = document.getElementById('theme-toggle');
+const body = document.body;
+
+const savedTheme = localStorage.getItem('clockTheme') || 'dark-theme';
+body.classList.add(savedTheme);
+
+toggleBtn.addEventListener('click', () => {
+  if (body.classList.contains('dark-theme')) {
+    body.classList.remove('dark-theme');
+    body.classList.add('light-theme');
+    localStorage.setItem('clockTheme', 'light-theme');
+  } else {
+    body.classList.remove('light-theme');
+    body.classList.add('dark-theme');
+    localStorage.setItem('clockTheme', 'dark-theme');
+  }
+});
+
 let hr = document.querySelector('#hr');
 let mn = document.querySelector('#mn');
 let sc = document.querySelector('#sc');
