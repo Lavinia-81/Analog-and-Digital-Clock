@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova&family=Fira+Sans:wght@300&family=Poppins:wght@200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100&display=swap');
+
+* {
+  margin: 2px;
+  padding: 5px;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(91, 92, 99);
+}
+
+.container {
+  position: relative;
+  background: #2f363e;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.5);
+  border-radius: 30px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.5),
+  inset 5px 5px 20px rgba(255, 255,255, 0.2),
+  inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+  border-top-left-radius: 225px;
+  border-top-right-radius: 225px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.clock {
+  position: relative;
+  width: 80vw;
+  height: 80vw;
+  max-width: 400px;
+  max-height: 400px;
+  background: #3b4651;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid rgba(0,0,0,0.5);
+  border-radius: 50%;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.5),
+  inset 5px 5px 20px rgba(255, 255,255, 0.2),
+  inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+}
+
+.clock::before {
+  content: '';
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #3d4752;
+  border-radius: 50%;
+  z-index: 100000;
+}
+
+.clock span {
+  position: absolute;
+  inset: 0;
+  color: #fff;
+  text-align: center;
+  transform: rotate(calc(30deg * var(--i)));
+}
+
+.clock span b {
+  font-size: 2em;
+  opacity: 0.65;
+  font-weight: 600;
+  display: inline-block;
+  transform: rotate(calc(-30deg * var(--i)));
+}
+
+.circle {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  border: 2px solid rgba(0,0,0,0.25);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 10;
+}
+
+.circle i {
+  position: absolute;
+  width: 4px;
+  height: 50%;
+  background: var(--clr);
+  opacity: 0.65;
+  transform-origin: bottom;
+  transform: scaleY(0.6);
+}
+
+.circle:nth-child(1) i {
+  width: 3px;
+}
+
+.circle:nth-child(2) i {
+  width: 6px;
+}
+
+.circle2 {
+  width: 205px;
+  height: 205px;
+  z-index: 9;
+}
+
+.circle3 {
+  width: 160px;
+  height: 160px;
+  z-index: 8;
+}
+
+.circle::before {
+  content: '';
+  position: absolute;
+  top: -8.5;
+  left: 50%;
+  width: 7px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--clr);
+  box-shadow: 0 0 20px var(--clr),
+  0 0 20px var(--clr);
+}
+
+#time {
+  margin-bottom: 25px;
+  display: flex;
+  padding: 10px 20px;
+  font-size: 2em;
+  font-weight: 600;
+  border: 1px solid rgba(0,0,0,0.5);
+  border-radius: 30px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.5),
+  inset 5px 5px 20px rgba(255, 255,255, 0.2),
+  inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+
+}
+
+#time div {
+  position: relative;
+  width: 60px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--clr);
+}
+
+#time div:nth-child(1)::after,
+#time div:nth-child(2)::after {
+  content: ':';
+  position: absolute;
+  right: -4px;
+}
+
+#time div:last-child {
+  font-size: 0.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+#time div:nth-child(2)::after {
+  animation: animate 1s steps(1) infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+body.light-theme {
+  background-color: #fdfbfb;
+}
+
+body.light-theme .container {
+  background: #ffffff;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1),
+              inset 5px 5px 20px rgba(0,0,0,0.09),
+              inset -5px -5px 15px rgba(0,0,0,0.5);
+}
+
+body.light-theme .clock {
+  background:  #fdfbfb;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1),
+              inset 5px 5px 20px rgba(255,255,255,0.5),
+              inset -5px -5px 15px rgba(0,0,0,0.5);
+}
+
+body.light-theme .clock span {
+  color: #333;
+}
+
+body.light-theme #time {
+  background: #fff;
+  color: #333;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1),
+              inset 5px 5px 20px rgba(255,255,255,0.5),
+              inset -5px -5px 15px rgba(0,0,0,0.5);
+}
+
+body.light-theme #time div {
+  color: var(--clr);
+}
+#theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  
+  background: var(--clr, #ff6f61);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+
+@media (max-width: 375px) {
+  .clock {
+    width: 80vw;
+    height: 80vw;
+  }
+  #time div {
+    width: 60px;
+    font-size: 0.9em;
+  }
+} 
+ 
