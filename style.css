@@ -2,18 +2,47 @@
 
 * {
   margin: 2px;
-  padding: 5px;
+  padding: 2px;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   background: rgb(91, 92, 99);
+  min-height: 100vh;
 }
-
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#clock-title {
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 15px 30px;
+  margin-bottom: 10px;
+  color: rgb(190, 189, 189);
+  background: #2f363e;
+  border-radius: 20px;
+  border: 1px solid rgba(0,0,0,0.5);
+  border-radius: 30px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.5),
+  inset 5px 5px 20px rgba(255, 255,255, 0.2),
+  inset -5px -5px 15px rgba(0, 0, 0, 0.75);
+  border-top-left-radius: 225px;
+  border-top-right-radius: 225px;
+  display: flex;
+  transition: color 0.3s ease;
+}
+body.light-theme #clock-title {
+  color: rgb(91, 92, 99);
+  background: rgb(226, 224, 224);
+  border: 1px solid #fff;
+  box-shadow: 0px 5px 10px rgba(253, 253, 253, 0.5),
+}
 .container {
   position: relative;
   background: #2f363e;
@@ -30,8 +59,6 @@ body {
   align-items: center;
   flex-direction: column;
 }
-
-
 .clock {
   position: relative;
   width: 80vw;
@@ -49,7 +76,6 @@ body {
   inset 5px 5px 20px rgba(255, 255,255, 0.2),
   inset -5px -5px 15px rgba(0, 0, 0, 0.75);
 }
-
 .clock::before {
   content: '';
   position: absolute;
@@ -59,7 +85,6 @@ body {
   border-radius: 50%;
   z-index: 100000;
 }
-
 .clock span {
   position: absolute;
   inset: 0;
@@ -67,7 +92,6 @@ body {
   text-align: center;
   transform: rotate(calc(30deg * var(--i)));
 }
-
 .clock span b {
   font-size: 2em;
   opacity: 0.65;
@@ -75,7 +99,6 @@ body {
   display: inline-block;
   transform: rotate(calc(-30deg * var(--i)));
 }
-
 .circle {
   position: absolute;
   width: 250px;
@@ -87,7 +110,6 @@ body {
   align-items: flex-start;
   z-index: 10;
 }
-
 .circle i {
   position: absolute;
   width: 4px;
@@ -97,27 +119,22 @@ body {
   transform-origin: bottom;
   transform: scaleY(0.6);
 }
-
 .circle:nth-child(1) i {
   width: 3px;
 }
-
 .circle:nth-child(2) i {
   width: 6px;
 }
-
 .circle2 {
   width: 205px;
   height: 205px;
   z-index: 9;
 }
-
 .circle3 {
   width: 160px;
   height: 160px;
   z-index: 8;
 }
-
 .circle::before {
   content: '';
   position: absolute;
@@ -130,7 +147,6 @@ body {
   box-shadow: 0 0 20px var(--clr),
   0 0 20px var(--clr);
 }
-
 #time {
   margin-bottom: 25px;
   display: flex;
@@ -142,9 +158,7 @@ body {
   box-shadow: 0px 5px 10px rgba(0,0,0,0.5),
   inset 5px 5px 20px rgba(255, 255,255, 0.2),
   inset -5px -5px 15px rgba(0, 0, 0, 0.75);
-
 }
-
 #time div {
   position: relative;
   width: 60px;
@@ -152,14 +166,12 @@ body {
   font-weight: 600;
   color: var(--clr);
 }
-
 #time div:nth-child(1)::after,
 #time div:nth-child(2)::after {
   content: ':';
   position: absolute;
   right: -4px;
 }
-
 #time div:last-child {
   font-size: 0.5em;
   display: flex;
@@ -167,33 +179,22 @@ body {
   align-items: center;
   color: #fff;
 }
-
 #time div:nth-child(2)::after {
   animation: animate 1s steps(1) infinite;
 }
-
-@keyframes animate {
-  0% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
-}
-
 body.light-theme {
-  background-color: #fdfbfb;
+  background-color: rgb(226, 224, 224);
 }
-
 body.light-theme .container {
-  background: #ffffff;
+  background: rgb(226, 224, 224);
+  border: 1px solid #fff;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.1),
               inset 5px 5px 20px rgba(0,0,0,0.09),
               inset -5px -5px 15px rgba(0,0,0,0.5);
 }
-
 body.light-theme .clock {
-  background:  #fdfbfb;
+  background:  rgb(226, 224, 224);
+  border: 1px solid #fff;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.1),
               inset 5px 5px 20px rgba(255,255,255,0.5),
               inset -5px -5px 15px rgba(0,0,0,0.5);
@@ -204,20 +205,20 @@ body.light-theme .clock span {
 }
 
 body.light-theme #time {
-  background: #fff;
+  background: rgb(196, 195, 195);
+  border: 1px solid #fff;
   color: #333;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.1),
               inset 5px 5px 20px rgba(255,255,255,0.5),
               inset -5px -5px 15px rgba(0,0,0,0.5);
 }
-
 body.light-theme #time div {
   color: var(--clr);
 }
 #theme-toggle {
   position: fixed;
   bottom: 20px;
-  
+  right: 20px;
   background: var(--clr, #ff6f61);
   color: #fff;
   border: none;
@@ -229,6 +230,14 @@ body.light-theme #time div {
   z-index: 1000;
 }
 
+@keyframes animate {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
 
 @media (max-width: 375px) {
   .clock {
@@ -240,4 +249,3 @@ body.light-theme #time div {
     font-size: 0.9em;
   }
 } 
- 
